@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Cosmetic Slider</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600');
+
+body {
+  margin: 0;
+  background: #000;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* NAV */
+.nav {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav__logo {
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.nav__menu {
+  display: flex;
+  gap: 28px;
+}
+
+.nav__menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* HEADER */
+.header__main {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* SLIDES */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.8s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide:first-of-type {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* BACKGROUND */
+.slide__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  opacity: 0.4;
+  transform: scale(1.1);
+}
+
+/* IMAGE */
+.slide__images {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide__image {
+  width: 45%;
+  max-width: 350px;
+  object-fit: contain;
+}
+
+/* PAGINATION */
+.slider__pagination {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 26px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}
+
+.button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* FOOTER (FIX 핵심) */
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 40px;
+  background: #000;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.footer__col {
+  flex: 1;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__logo">Park YuJeong</div>
+  <div class="nav__menu">
+    <a href="#slide-1">HOME</a>
+    <a href="#slide-2">BRAND</a>
+    <a href="#">MAKEUP</a>
+    <a href="#">STORE</a>
+  </div>
+</nav>
+
+<!-- SLIDER -->
+<header class="header__main">
+
+  <div class="slide" id="slide-1">
+    <img class="slide__bg" src="https://images.unsplash.com/photo-1571875257727-256c39da42af">
+    <div class="slide__images">
+      <img class="slide__image" src="https://images.unsplash.com/photo-1571875257727-256c39da42af">
+    </div>
+  </div>
+
+  <div class="slide" id="slide-2">
+    <img class="slide__bg" src="https://images.unsplash.com/photo-1614267861476-0d129972a0f4">
+    <div class="slide__images">
+      <img class="slide__image" src="https://images.unsplash.com/photo-1614267861476-0d129972a0f4">
+    </div>
+  </div>
+
+  <div class="slider__pagination">
+    <a href="#slide-1" class="button">NEW 1</a>
+    <a href="#slide-2" class="button">NEW 2</a>
+  </div>
+
+</header>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__col">공지사항</div>
+  <div class="footer__col">고객문의</div>
+  <div class="footer__col">FAQ</div>
+</footer>
+
+<script>
+window.addEventListener("load", () => {
+  if (!location.hash) {
+    location.hash = "#slide-1";
+  }
+});
+</script>
+
+</body>
+</html>
